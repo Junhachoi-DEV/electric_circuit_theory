@@ -2,12 +2,17 @@
 using namespace std;
 
 float temp;
-float v = 120; //볼트 입력
-float r = 27250; //저항 합 입력
+float v = 18; //볼트 입력
+//float v_t_value;
+
+float r = 85; //저항 합 입력
+//float r_t_value;
+
+
 float result_i = v / r;
-int num = 4; //몇번할지
+int num = 6; //몇번할지
 //저항 개수
-float rt[] = { 750, 15000, 10000, 1500 };
+float rt[] = { 15,100,100,1000,150,100 };
 
 float box_1;
 float box_2;
@@ -27,7 +32,7 @@ void r_sum() {
 	}
 	for (int k = 0; k < num; k++)
 	{
-		cout << "vt" << k+1 << "= " << result_i * rt[k] << endl;
+		cout << "v" << k+1 << "= " << result_i * rt[k] << endl;
 		box_1 = result_i * rt[k];
 		cout << "p" << k+1 <<"= " << box_1 * result_i << endl;
 		box_2 += box_1 * result_i;
@@ -39,7 +44,7 @@ void i_sum_and_result() {
 	
 	for (int h = 0; h < num; h++)
 	{
-		cout << "I"<<h+1 << "= " << v / rt[h] << endl;
+		cout << "I"<< h+1 << "= " << v / rt[h] << endl;
 		box_3 += v / rt[h];
 	}
 	cout << "IT = " << box_3 << endl;
