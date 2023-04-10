@@ -2,17 +2,21 @@
 using namespace std;
 
 float temp;
-float v = 18; //볼트 입력
+float temp2;
+
+float v = 24; //볼트 입력
 //float v_t_value;
 
-float r = 85; //저항 합 입력
+
+float r = 160; //저항 합 입력
 //float r_t_value;
 
 
 float result_i = v / r;
-int num = 6; //몇번할지
-//저항 개수
-float rt[] = { 15,100,100,1000,150,100 };
+float lt; // 볼트 모를때
+
+int num = 2; //몇번할지 //저항 개수
+float rt[] = { 40, 120 };
 
 float box_1;
 float box_2;
@@ -26,9 +30,7 @@ void r_sum() {
 	for (int j = 0; j < num-1; j++)
 	{
 		 temp += rt[j + 1];
-		
-		cout << temp << endl;
-		
+		 cout << temp << endl;
 	}
 	for (int k = 0; k < num; k++)
 	{
@@ -50,11 +52,39 @@ void i_sum_and_result() {
 	cout << "IT = " << box_3 << endl;
 }
 
+void division_ele() {
+
+	//int a =0;
+	temp2 = temp;
+	for (int i = 0; i < num; i++)
+	{
+		temp2 -= rt[i];
+		cout << rt[i] << "+" << temp2 << "/" << temp << "*" << v << endl;
+		cout << (rt[i] + temp2) / temp * v << endl;
+	}
+	
+}
+
+void two_over_division() {
+
+	for (int i = num; i >= 0; i--)
+	{
+		cout << rt[i] << "/" << temp << "*" << lt << endl;
+		cout << rt[i] / temp * lt << endl;
+	}
+}
+
 void main() {
 	
 
 	r_sum();
+
+	cout << endl;
 	i_sum_and_result();
 	
+	cout << endl;
+	division_ele();
 	
+	cout << endl;
+	two_over_division();
 }
